@@ -2,6 +2,6 @@
 {
     public interface IProblemResolver
     {
-        Type GetProblemQuery(int problemId);
+        Type GetProblemQueryType(int problemId);
     }
 }

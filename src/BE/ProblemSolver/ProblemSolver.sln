@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemSolver", "ProblemSol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemSolver.Application", "ProblemSolver.Application\ProblemSolver.Application.csproj", "{BE81B625-4AF4-4AA2-8208-062F83CD382E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolver.Domain", "ProblemSolver.Domain\ProblemSolver.Domain.csproj", "{39A4452A-A1BE-4574-8B8F-C5B19B57B485}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemSolver.Domain", "ProblemSolver.Domain\ProblemSolver.Domain.csproj", "{39A4452A-A1BE-4574-8B8F-C5B19B57B485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolver.Infrastructure", "ProblemSolver.Infrastructure\ProblemSolver.Infrastructure.csproj", "{7EED7FDE-5241-4F75-A33A-981CBB26E74A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProblemSolver.Infrastructure", "ProblemSolver.Infrastructure\ProblemSolver.Infrastructure.csproj", "{7EED7FDE-5241-4F75-A33A-981CBB26E74A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblemSolver.Tests", "ProblemSolver.Tests\ProblemSolver.Tests.csproj", "{160C834D-4AF2-45B8-A9BF-EE73A97F4726}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7EED7FDE-5241-4F75-A33A-981CBB26E74A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EED7FDE-5241-4F75-A33A-981CBB26E74A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EED7FDE-5241-4F75-A33A-981CBB26E74A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{160C834D-4AF2-45B8-A9BF-EE73A97F4726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{160C834D-4AF2-45B8-A9BF-EE73A97F4726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{160C834D-4AF2-45B8-A9BF-EE73A97F4726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{160C834D-4AF2-45B8-A9BF-EE73A97F4726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

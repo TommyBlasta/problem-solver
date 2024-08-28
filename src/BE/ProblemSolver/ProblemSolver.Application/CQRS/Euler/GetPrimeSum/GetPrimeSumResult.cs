@@ -2,6 +2,6 @@
 {
     public class GetPrimeSumResult
     {
-        public int Result { get; set; }
+        public long Result { get; set; }
     }
 }

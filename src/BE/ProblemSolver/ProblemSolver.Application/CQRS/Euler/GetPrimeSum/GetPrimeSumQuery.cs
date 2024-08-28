@@ -7,6 +7,7 @@ namespace ProblemSolver.Application.CQRS.Euler.GetPrimeSum
         public int PrimeLimit { get; set; } = 2000000;
     }
 
+    //https://projecteuler.net/problem=10
     public class GetPrimeSumQueryHandler : IRequestHandler<GetPrimeSumQuery, GetPrimeSumResult>
     {
         public Task<GetPrimeSumResult> Handle(GetPrimeSumQuery request, CancellationToken cancellationToken)
@@ -30,10 +31,17 @@ namespace ProblemSolver.Application.CQRS.Euler.GetPrimeSum
                 }
             }
 
-            //Sum of all primes
-            var sum = range.Where(x => x.Value).Select(x => x.Key).Sum();
+            var primes = range.Where(x => x.Value).Select(x => x.Key);
 
-            return Task.FromResult(new GetPrimeSumResult { Result = sum });
+            //Sum of all primes
+            long result = 0;
+
+            foreach (var prime in primes)
+            {
+                result += prime;
+            }
+
+            return Task.FromResult(new GetPrimeSumResult { Result = result });
         }
     }
 }
