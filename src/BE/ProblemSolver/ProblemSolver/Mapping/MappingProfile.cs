@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProblemSolver.Application.CQRS.Advent._2020.Day1;
+using ProblemSolver.Application.CQRS.Advent._2020.Day2;
 using ProblemSolver.Application.CQRS.Euler.GetPrimeSum;
 using ProblemSolver.Contract;
 using ProblemSolver.Contract.Problems;
@@ -23,6 +24,12 @@ namespace ProblemSolver.Mapping
 
             CreateMap<ProblemInputDto, GetMultiplicationOfSumTargetQuery>()
                 .ConstructUsing((i) => DeserializeToType<GetMultiplicationOfSumTargetQuery>(i));
+
+            CreateMap<ProblemInputDto, GetValidPasswordsQuery>()
+                .ConstructUsing((i) => DeserializeToType<GetValidPasswordsQuery>(i));
+
+            CreateMap<GetValidPasswordsResult, ProblemResultDto>()
+                .ForMember(d => d.Result, o => o.MapFrom(s => s.ValidPasswordsCount));
 
             CreateMap<Problem, ProblemDto>();
         }

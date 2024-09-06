@@ -1,5 +1,8 @@
 
+using FluentValidation;
 using ProblemSolver.Application;
+using ProblemSolver.Application.Validation;
+using ProblemSolver.ErrorHandling;
 using ProblemSolver.Infrastructure;
 using ProblemSolver.Infrastructure.Persistence;
 using System.Reflection;
@@ -27,10 +30,26 @@ namespace ProblemSolver
                 );
             });
 
-            builder.Services.AddMediatR(c => c.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(ProblemResolver))!));
+            builder.Services.AddMediatR(c =>
+            {
+                c.RegisterServicesFromAssembly(Assembly.GetAssembly(typeof(ProblemResolver))!);
+                c.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
+            });
+
             builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             builder.Services.AddSingleton<IProblemResolver, ProblemResolver>();
+
+            builder.Services.Scan(scan => scan
+                .FromAssemblyOf<IProblemResolver>()
+                .AddClasses(classes => classes.AssignableTo(typeof(AbstractValidator<>)))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime());
+
+            builder.Services.AddScoped<ErrorHandlingMiddleware>();
+
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
 
             DependencyInjection.AddInfrastructureServices(builder.Services, builder.Configuration);
 
@@ -42,6 +61,8 @@ namespace ProblemSolver
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
 

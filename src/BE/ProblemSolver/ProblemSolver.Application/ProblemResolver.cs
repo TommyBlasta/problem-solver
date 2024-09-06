@@ -13,6 +13,7 @@
             {
                 1 => typeof(CQRS.Euler.GetPrimeSum.GetPrimeSumQuery),
                 2 => typeof(CQRS.Advent._2020.Day1.GetMultiplicationOfSumTargetQuery),
+                3 => typeof(CQRS.Advent._2020.Day2.GetValidPasswordsQuery),
                 _ => throw new NotImplementedException(),
             };
         }
