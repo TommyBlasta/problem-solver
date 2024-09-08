@@ -32,7 +32,7 @@ namespace ProblemSolver.Controllers
         [HttpPost]
         public async Task<Guid> CreateProblem(ProblemCreationInputDto problemCreationInputDto, CancellationToken cancellationToken)
         {
-            var command = new CreateProblemCommand();
+            var command = Mapper.Map<CreateProblemCommand>(problemCreationInputDto);
 
             var result = await Mediator.Send(command);
 

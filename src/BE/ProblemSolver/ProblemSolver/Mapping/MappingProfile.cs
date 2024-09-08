@@ -2,6 +2,7 @@
 using ProblemSolver.Application.CQRS.Advent._2020.Day1;
 using ProblemSolver.Application.CQRS.Advent._2020.Day2;
 using ProblemSolver.Application.CQRS.Euler.GetPrimeSum;
+using ProblemSolver.Application.CQRS.Problems.Commands.CreateProblem;
 using ProblemSolver.Contract;
 using ProblemSolver.Contract.Problems;
 using ProblemSolver.Domain.Entities;
@@ -32,6 +33,8 @@ namespace ProblemSolver.Mapping
                 .ForMember(d => d.Result, o => o.MapFrom(s => s.ValidPasswordsCount));
 
             CreateMap<Problem, ProblemDto>();
+
+            CreateMap<ProblemCreationInputDto, CreateProblemCommand>();
         }
 
         private T DeserializeToType<T>(ProblemInputDto input) where T : new()
