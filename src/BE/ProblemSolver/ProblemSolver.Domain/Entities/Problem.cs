@@ -8,6 +8,6 @@
         public string DefaultInput { get; set; } = string.Empty;
         public Guid CategoryId { get; set; }
 
-        public ProblemCategory Category { get; set; } = new ProblemCategory();
+        public ProblemCategory? Category { get; set; }
     }
 }

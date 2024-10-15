@@ -18,6 +18,18 @@ namespace ProblemSolver
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            //TODO: remove when allowing all cors access is not desirable
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader();
+                });
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(swaggerGenOptions =>
@@ -62,6 +74,9 @@ namespace ProblemSolver
                 app.UseSwaggerUI();
             }
 
+            //TODO: remove when allowing all cors access is not desirable
+            app.UseCors("AllowAll");
+
             app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseHttpsRedirection();
@@ -80,6 +95,8 @@ namespace ProblemSolver
             var dbInitalizer = application.Services.CreateScope().ServiceProvider.GetRequiredService<ApplicationDbContextInitializer>();
 
             await dbInitalizer.InitialiseAsync();
+
+            await dbInitalizer.TrySeedAsync();
         }
     }
 }
