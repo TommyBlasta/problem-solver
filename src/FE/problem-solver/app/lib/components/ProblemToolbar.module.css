@@ -6,19 +6,39 @@
     background-color: #f4f4f4;
     border-bottom: 1px solid #ddd;
   }
-  
-  .addButton {
+.buttonBase {
     padding: 10px 20px;
-    background-color: #0070f3;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.2s ease;
+    margin-right: 10px;
   }
   
-  .addButton:hover {
-    background-color: #005bb5;
-  }
+.addButton {
+background-color: #0070f3;
+}
+
+.addButton:hover {
+background-color: #005bb5;
+}
+
+.solveButton {
+background-color: #e53e3e;
+}
+
+.solveButton:hover {
+background-color: #c53030;
+}
+
+.listButton {
+background-color: #39aa17;
+}
+
+.listButton:hover {
+background-color: #2f8e12;
+}
+  
   
